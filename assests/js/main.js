@@ -89,18 +89,30 @@ var app = new Vue({
         this.pastcities = [];
         this.pastcities.push(this.strcity);
         localStorage.setItem("pastcities", JSON.stringify(this.pastcities));
-      } else if (this.pastcities.length > 0) {
-        this.pastcities.push(this.strcity);
+      } else if (
+        this.pastcities.length > 0 &&
+        !this.checkPast(this.pastcities, this.strcity)
+      ) {
+        this.pastcities.push(this.strcity.toLowerCase());
         localStorage.setItem("pastcities", JSON.stringify(this.pastcities));
       }
+      if (this.fiveDay.length > 0) {
+        this.fiveDay = [];
+      }
+
       if (this.error == true) {
         this.error == false;
       }
-      if (this.fiveDay.length > 0) {
-        this.diveDay = [];
-      }
+
       this.getData(this.strcity);
       console.log(this.strcity);
+    },
+    checkPast: function(ar, val) {
+      if (ar.find(element => element === val)) {
+        return true;
+      } else {
+        return false;
+      }
     },
     pastSearch: function(val) {
       if (this.fiveDay.length > 0) {
