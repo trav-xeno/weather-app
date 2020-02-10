@@ -24,6 +24,9 @@ body {
 .day {
   padding-left: 25px;
 }
+.top-padding {
+  padding-top: 15px;
+}
 .s5,
 .m5,
 .l5,

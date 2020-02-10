@@ -15,6 +15,7 @@ The libraries used in this porject were momentjs, vuejs, and javascript fetch.
 ## CSS
 
 Updating comming with a bit better lookin background and coloring choices. For tue most part his uses pure materialize.
+I did have to code my own 5 column to the style.css so I could do the five day boxes, which I found some information on Stack Overflow that lead me in the right direction.
 If you are wondering about the icons I used openweathers icon url to get their icons. Each weather event had their icon code and all I did was put the code in the url and was added into page using vuejs binding to src of image tags.
 
 ## App Link

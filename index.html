@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link
       rel="stylesheet"
       href="./assests/css/materialize/css/materialize.css"
@@ -94,22 +94,7 @@
           </div>
         </div>
         <div v-if="found" class="row">
-          <div v-for="day in fiveDay" class="col s12 m5  ">
-            <div class="white-text blue darken-3 tn-card-2 ">
-              <div class="row">
-                <h6 class="day">{{day.date}}</h6>
-              </div>
-              <div class="row">
-                <img class="day" :src="day.icon" alt="weather icon" />
-              </div>
-              <div class="row">
-                <p class="day">temperature: {{day.temp}} &#176;F</p>
-              </div>
-              <div class="row">
-                <p class="day">humidity: {{day.humidity}}</p>
-              </div>
-            </div>
-          </div>
+          <week-day v-for="days in fiveDay" :day="days"></week-day>
         </div>
         <div v-if="error" class="row">
           <div class="tn-card-2 col s12 m8">

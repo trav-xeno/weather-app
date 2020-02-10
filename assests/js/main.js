@@ -36,16 +36,25 @@ class Day {
   }
 }
 
-/*
-uv needs lat long give in  city search so call one before the other 
-  1-2 green #388e3c green darken-2
-  3-5 yellow #ffeb3b yellow
-  6-7 orange #fb8c00 orange darken-1
-  9-10 red #c62828 red darken-3
-  11+ purple #6a1b9a purple darken-3
-  5day takes city name too contains all of the stuff y oun eed 
-  (Kvalue − 273.15) × 9/5 + 32 = F 
-*/
+Vue.component("week-day", {
+  props: ["day"],
+  template: `  <div class="col s12 m5  ">
+            <div class="white-text blue darken-3 tn-card-2 ">
+              <div class="row">
+                <h6 class="day top-padding">{{day.date}}</h6>
+              </div>
+              <div class="row">
+                <img class="day" :src="day.icon" alt="weather icon" />
+              </div>
+              <div class="row">
+                <p class="day">temperature: {{day.temp}} &#176;F</p>
+              </div>
+              <div class="row">
+                <p class="day">humidity: {{day.humidity}}</p>
+              </div>
+            </div>
+          </div>`
+});
 
 var app = new Vue({
   el: "#app",
@@ -87,17 +96,26 @@ var app = new Vue({
       if (this.error == true) {
         this.error == false;
       }
+      if (this.fiveDay.length > 0) {
+        this.diveDay = [];
+      }
       this.getData(this.strcity);
       console.log(this.strcity);
     },
     pastSearch: function(val) {
+      if (this.fiveDay.length > 0) {
+        this.fiveDay = [];
+        this.uv = "";
+        this.temp = "";
+        this.humidity = "";
+        this.src = "";
+      }
+      this.strcity = val;
+
       this.getData(val);
       console.log(val);
     },
     getFiveday: function() {
-      if (this.fiveDay.lenght > 0) {
-        this.fiveDay = [];
-      }
       let d1 = moment().add(1, "days");
       let d2 = moment().add(2, "days");
       let d3 = moment().add(3, "days");
