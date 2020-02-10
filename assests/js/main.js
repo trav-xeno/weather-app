@@ -139,7 +139,7 @@ var app = new Vue({
       let day4 = d4.format("L");
       let day5 = d5.format("L");
       let encode = encodeURI(this.strcity);
-      let url = `http://api.openweathermap.org/data/2.5/forecast?q=${encode}&appid=b51c5cf48dfe074805925189e16717b6`;
+      let url = `https://api.openweathermap.org/data/2.5/forecast?q=${encode}&appid=b51c5cf48dfe074805925189e16717b6`;
       //icons this.src = `http://openweathermap.org/img/wn/${object.weather[0].icon}@2x.png`;
       fetch(url)
         .then(response => {
@@ -155,7 +155,7 @@ var app = new Vue({
                 day1,
                 this.convertTemp(list[i].main.temp),
                 list[i].main.humidity,
-                `http://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
+                `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
               );
               this.fiveDay.push(day);
             } else if (i == 11) {
@@ -163,7 +163,7 @@ var app = new Vue({
                 day2,
                 this.convertTemp(list[i].main.temp),
                 list[i].main.humidity,
-                `http://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
+                `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
               );
               this.fiveDay.push(dy2);
             } else if (i == 19) {
@@ -171,7 +171,7 @@ var app = new Vue({
                 day3,
                 this.convertTemp(list[i].main.temp),
                 list[i].main.humidity,
-                `http://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
+                `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
               );
               this.fiveDay.push(dy3);
             } else if (i == 27) {
@@ -179,7 +179,7 @@ var app = new Vue({
                 day4,
                 this.convertTemp(list[i].main.temp),
                 list[i].main.humidity,
-                `http://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
+                `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
               );
               this.fiveDay.push(dy4);
             } else if (i == 35) {
@@ -187,7 +187,7 @@ var app = new Vue({
                 day5,
                 this.convertTemp(list[i].main.temp),
                 list[i].main.humidity,
-                `http://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
+                `https://openweathermap.org/img/wn/${list[i].weather[0].icon}@2x.png`
               );
               this.fiveDay.push(dy5);
             }
@@ -200,7 +200,7 @@ var app = new Vue({
     },
 
     getUv: function(lat, lon) {
-      let url = `http://api.openweathermap.org/data/2.5/uvi?appid=b51c5cf48dfe074805925189e16717b6&lat=${lat}&lon=${lon}`;
+      let url = `https://api.openweathermap.org/data/2.5/uvi?appid=b51c5cf48dfe074805925189e16717b6&lat=${lat}&lon=${lon}`;
       fetch(url)
         .then(response => {
           return response.json();
@@ -246,7 +246,7 @@ var app = new Vue({
       console.log(str);
       console.log(encode);
 
-      let url = `http://api.openweathermap.org/data/2.5/weather?q=${encode}&appid=b51c5cf48dfe074805925189e16717b6`;
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${encode}&appid=b51c5cf48dfe074805925189e16717b6`;
       console.log(url);
 
       fetch(url)
@@ -259,7 +259,7 @@ var app = new Vue({
           this.temp = this.convertTemp(object.main.temp);
           this.wind = object.wind.speed;
           this.humidity = object.main.humidity;
-          this.src = `http://openweathermap.org/img/wn/${object.weather[0].icon}@2x.png`;
+          this.src = `https://openweathermap.org/img/wn/${object.weather[0].icon}@2x.png`;
           this.getUv(object.coord.lat, object.coord.lon);
           this.getFiveday();
           this.found = true;
